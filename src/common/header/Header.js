@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './Header.css';
+import BookShow from '../../screens/bookshow/BookShow';
 import Button from '@material-ui/core/Button';
 import logo from '../../assets/logo.svg';
 import Modal from 'react-modal';
@@ -10,6 +11,7 @@ import FormControl from '@material-ui/core/FormControl';
 import InputLabel from '@material-ui/core/InputLabel';
 import Input from '@material-ui/core/Input';
 import PropTypes from 'prop-types';
+import ReactDOM from 'react-dom';
 import FormHelperText from '@material-ui/core/FormHelperText';
 
 const customStyles = {
@@ -116,6 +118,12 @@ class Header extends Component {
         this.state.contact === "" ? this.setState({ contactRequired: "dispBlock" }) : this.setState({ contactRequired: "dispNone" });
     }
 
+    bookshowHandler = () => {
+        ReactDOM.render(
+            <BookShow />,
+            document.getElementById("root"));
+    }
+
     render() {
         return (
             <div>
@@ -126,6 +134,12 @@ class Header extends Component {
                             Login
                         </Button>
                     </div>
+                    {this.props.showBookShow === "true" ?
+                        <div className="bookshow-button">
+                            <Button variant="contained" color="primary" onClick={this.bookshowHandler}>
+                                BOOK SHOW
+                        </Button>
+                        </div> : ""}
                 </header>
 
                 <Modal
