@@ -96,7 +96,7 @@ class Details extends Component {
                 <div className="back">
                     <Typography onClick={this.backtohomeHandler}>
                         &#60; Back to Home
-               </Typography>
+                    </Typography>
                 </div>
                 <div className="flex-containerDetails">
                     <div className="leftDetails">
